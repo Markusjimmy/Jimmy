@@ -1,0 +1,47 @@
+.jumbotron {
+  padding-top: 6rem;
+  background-color: #e2edff;
+}
+#projects {
+  background-color: #e2edff;
+}
+
+section {
+  padding-top: 5rem;
+}
+.profile-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden; /* Memastikan gambar tetap dalam lingkaran */
+  display: inline-block;
+  position: relative;
+}
+.profile-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.8); /* Cahaya awal */
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Gambar tetap bulat dan tidak terpotong */
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Animasi cahaya berkedip */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(0, 123, 255, 1);
+  }
+}
