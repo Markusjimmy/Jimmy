@@ -385,44 +385,49 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.forms["Jim-contact-form"];
-    const btnKirim = document.querySelector(".btn-kirim");
-    const btnLoading = document.querySelector(".btn-loading");
-    const myAlert = document.querySelector(".my-alert");
-    const pesanInput = document.getElementById("Pesan");
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzy3VvfrnHRigsVos9cgMiGWI9akOmONw6f18kOaZ1CnNy-LpKERjHiVOzoMCIzj7y_/exec';
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.forms["Jim-contact-form"];
+        const btnKirim = document.querySelector(".btn-kirim");
+        const btnLoading = document.querySelector(".btn-loading");
+        const myAlert = document.querySelector(".my-alert");
+        const pesanInput = document.getElementById("Pesan");
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzy3VvfrnHRigsVos9cgMiGWI9akOmONw6f18kOaZ1CnNy-LpKERjHiVOzoMCIzj7y_/exec';
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault(); // Mencegah pengiriman default
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Mencegah pengiriman default
 
-      // Validasi pesan tidak boleh kosong
-      if (pesanInput.value.trim() === "") {
-        alert("Harap isi form pesan terlebih dahulu!");
-        return; // Hentikan proses jika pesan kosong
-      }
+            // Jika pesan kosong, tampilkan alert merah
+            if (pesanInput.value.trim() === "") {
+                myAlert.classList.remove("d-none", "alert-success");
+                myAlert.classList.add("alert-danger"); // Warna merah
+                myAlert.innerHTML = "<strong>Error!</strong> Harap isi form pesan terlebih dahulu.";
+                return; // Hentikan proses
+            } 
 
-      // Tampilkan tombol loading, sembunyikan tombol kirim
-      btnLoading.classList.remove("d-none");
-      btnKirim.classList.add("d-none");
+            // Jika pesan terisi, sembunyikan error, tampilkan loading
+            myAlert.classList.add("d-none");
+            btnLoading.classList.remove("d-none");
+            btnKirim.classList.add("d-none");
 
-      // Kirim data ke Google Script
-      fetch(scriptURL, { method: "POST", body: new FormData(form) })
-        .then(response => {
-          // Kembalikan tombol kirim, sembunyikan tombol loading
-          btnLoading.classList.add("d-none");
-          btnKirim.classList.remove("d-none");
+            // Kirim data ke Google Script
+            fetch(scriptURL, { method: "POST", body: new FormData(form) })
+                .then(response => {
+                    // Kembalikan tombol kirim, sembunyikan tombol loading
+                    btnLoading.classList.add("d-none");
+                    btnKirim.classList.remove("d-none");
 
-          // Tampilkan alert sukses
-          myAlert.classList.remove("d-none");
+                    // Tampilkan alert hijau (sukses)
+                    myAlert.classList.remove("d-none", "alert-danger");
+                    myAlert.classList.add("alert-success"); // Warna hijau
+                    myAlert.innerHTML = "<strong>Terima kasih!</strong> Pesan anda sudah kami terima.";
 
-          // Reset form
-          form.reset();
-          console.log("Success!", response);
-        })
-        .catch(error => console.error("Error!", error.message));
+                    // Reset form
+                    form.reset();
+                    console.log("Success!", response);
+                })
+                .catch(error => console.error("Error!", error.message));
+        });
     });
-  });
 </script>
   
   </body>
