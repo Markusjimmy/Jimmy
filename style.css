@@ -45,3 +45,15 @@ section {
     box-shadow: 0 0 25px rgba(0, 123, 255, 1);
   }
 }
+
+/* Pastikan semua link tetap berwarna normal setelah diklik */
+a, a:visited {
+    color: #0d6efd !important; /* Warna biru Bootstrap */
+    text-decoration: none; /* Hilangkan garis bawah jika perlu */
+}
+
+/* Jika ingin efek hover tetap ada */
+a:hover {
+    color: #084298 !important; /* Warna biru lebih gelap saat hover */
+}
+
