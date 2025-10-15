@@ -185,7 +185,7 @@
         transform: scale(1.1);
       }
 
-      /* Modal di tengah layar */
+      /* Modal tengah layar */
       .modal {
         display: none;
         position: fixed;
@@ -200,7 +200,6 @@
         overflow: hidden;
       }
 
-      /* Efek zoom halus hanya untuk gambar */
       .modal-content {
         display: block;
         width: 80%;
@@ -209,6 +208,7 @@
         transform: scale(0.8);
         opacity: 0;
         transition: transform 0.4s ease, opacity 0.4s ease;
+        cursor: grab;
       }
 
       .modal.show .modal-content {
@@ -216,7 +216,7 @@
         opacity: 1;
       }
 
-      /* Tombol close diturunkan sedikit */
+      /* Tombol close */
       .close {
         position: absolute;
         top: 70px;
@@ -296,21 +296,56 @@
     </div>
 
     <script>
-      function openModal(img) {
-        const modal = document.getElementById("myModal");
-        const modalImage = document.getElementById("modalImage");
-        modalImage.src = img.src;
-        modal.style.display = "flex";
+      let scale = 1;
+      let isDragging = false;
+      let startX, startY;
+      let imgX = 0,
+        imgY = 0;
 
-        // Tambah class untuk efek zoom halus
-        setTimeout(() => modal.classList.add("show"), 10);
+      const modal = document.getElementById("myModal");
+      const modalImage = document.getElementById("modalImage");
+
+      function openModal(img) {
+        modal.style.display = "flex";
+        modalImage.src = img.src;
+        modal.classList.add("show");
+        scale = 1;
+        imgX = imgY = 0;
+        modalImage.style.transform = "scale(1) translate(0px, 0px)";
       }
 
       function closeModal() {
-        const modal = document.getElementById("myModal");
         modal.classList.remove("show");
         setTimeout(() => (modal.style.display = "none"), 400);
       }
+
+      // Zoom dengan scroll mouse
+      modalImage.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const delta = e.deltaY > 0 ? -0.1 : 0.1;
+        scale = Math.min(Math.max(1, scale + delta), 3);
+        modalImage.style.transform = `scale(${scale}) translate(${imgX}px, ${imgY}px)`;
+      });
+
+      // Geser (drag) gambar saat zoom
+      modalImage.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.clientX - imgX;
+        startY = e.clientY - imgY;
+        modalImage.style.cursor = "grabbing";
+      });
+
+      window.addEventListener("mouseup", () => {
+        isDragging = false;
+        modalImage.style.cursor = "grab";
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        imgX = e.clientX - startX;
+        imgY = e.clientY - startY;
+        modalImage.style.transform = `scale(${scale}) translate(${imgX}px, ${imgY}px)`;
+      });
     </script>
   </div>
 
