@@ -1,231 +1,793 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Curriculum Vitae | Markus Jimmy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
-    <style>
-      body {
-        font-family: "Roboto", sans-serif;
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Curriculum Vitae | Markus Jimmy</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+
+  <!-- Google Font -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+  />
+
+  <!-- HTML2PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow:
+          0 0 15px rgba(255, 0, 0, 0.2),
+          0 0 30px rgba(255, 0, 0, 0.3);
       }
 
-      @keyframes glow {
-        0% {
-          box-shadow: 0 0 15px rgba(255, 0, 0, 0.2), 0 0 30px rgba(255, 0, 0, 0.3);
-        }
-        50% {
-          box-shadow: 0 0 25px rgba(255, 0, 0, 0.4), 0 0 50px rgba(255, 0, 0, 0.5);
-        }
-        100% {
-          box-shadow: 0 0 15px rgba(255, 0, 0, 0.2), 0 0 30px rgba(255, 0, 0, 0.3);
-        }
+      50% {
+        box-shadow:
+          0 0 25px rgba(255, 0, 0, 0.4),
+          0 0 50px rgba(255, 0, 0, 0.5);
       }
 
-      .animate-glow {
-        animation: glow 1.5s infinite alternate;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        filter: blur(10px);
+      100% {
+        box-shadow:
+          0 0 15px rgba(255, 0, 0, 0.2),
+          0 0 30px rgba(255, 0, 0, 0.3);
       }
-    </style>
-  </head>
-  <body class="bg-gray-100 p-6">
-    <div id="cv-content" class="max-w-4xl mx-auto bg-white bg-opacity-90 p-8 rounded-lg shadow-lg">
-      
-      <!-- TOMBOL NAVIGASI & DOWNLOAD -->
-      <div class="mb-4 flex justify-between">
-        <a href="index.html" class="font-bold py-2 px-4 rounded bg-white text-gray-700 hover:bg-blue-500 hover:text-white border border-gray-300">
-          &larr; Back
-        </a>
-        <button onclick="downloadPDF()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-          ⬇ Download CV
-        </button>
-      </div>
+    }
 
-      <!-- HEADER PROFIL -->
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2">
-          <h1 class="text-4xl font-bold text-red-500">HELLO!</h1>
-          <h2 class="text-3xl font-bold text-red-500">I'M</h2>
-          <h2 class="text-3xl font-bold text-red-500">Markus Jimmy</h2>
-          <p class="mt-4 text-gray-700 text-justify leading-relaxed">
-            Lulusan D3 Teknik Informatika yang berdedikasi dengan pengalaman kerja lebih dari 4 tahun di bidang Administrasi Perkantoran, Manajemen Data Pendidikan (Dapodik), dan IT Support. Memiliki rekam jejak yang terbukti dalam mengelola database institusi skala besar, memastikan akurasi data 100%, serta melakukan perbaikan teknis (hardware & jaringan). Mahir memanfaatkan teknologi untuk mempercepat alur kerja kantor dan meningkatkan efisiensi administrasi.
-          </p>
-        </div>
-        <div class="md:w-1/2 flex justify-center mt-6 md:mt-0">
-          <div class="relative w-[150px] h-[150px] rounded-full overflow-hidden">
-            <div class="absolute inset-0 rounded-full animate-glow"></div>
-            <img src="img/IMG_0214__1_-png" alt="Portrait of Markus Jimmy" class="w-full h-full object-cover object-top shadow-lg" />
-          </div>
-        </div>
-      </div>
+    .animate-glow {
+      animation: glow 1.5s infinite alternate;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      filter: blur(10px);
+    }
 
-      <!-- ISI UTAMA CV -->
-      <div class="mt-8 md:flex md:items-start md:space-x-8">
-        
-        <!-- ==================== WORK EXPERIENCE (KIRI) ==================== -->
-        <div class="md:w-1/2 flex-1 space-y-6">
-          <h3 class="text-2xl font-bold text-red-500 border-b-2 border-red-500 pb-1">WORK EXPERIENCE</h3>
-          <div class="space-y-4 divide-y divide-gray-200">
-            
-            <!-- YAYASAN KASIH ANUGERAH -->
-            <div class="pt-3">
-              <p class="font-bold text-gray-800">✅ YAYASAN KASIH ANUGERAH – Staf Administrasi</p>
-              <p class="text-sm text-gray-500 mb-1">(Juni 2022 - Juli 2026)</p>
-              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                <li>Mengelola sistem data terintegrasi dan tugas administrasi volume tinggi.</li>
-                <li>Mengkoordinasikan surat-menyurat dan dokumen antar unit (SMP, PKBM, SMK).</li>
-              </ul>
-            </div>
+    /* Supaya PDF lebih rapi */
+    .avoid-break {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
 
-            <!-- PKBM KASIH ANUGERAH -->
-            <div class="pt-3">
-              <p class="font-bold text-gray-800">✅ PKBM KASIH ANUGERAH – Admin Umum & Operator Dapodik</p>
-              <p class="text-sm text-gray-500 mb-1">(2024 - Juli 2026)</p>
-              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                <li>Operator Utama sistem Dapodik, memastikan 100% sinkronisasi data akurat.</li>
-                <li>Mengelola pelaporan data BOS dan proses administrasi kelulusan.</li>
-              </ul>
-            </div>
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
 
-            <!-- SMK KASIH ANUGERAH -->
-            <div class="pt-3">
-              <p class="font-bold text-gray-800">✅ SMK KASIH ANUGERAH – Teknisi IT</p>
-              <p class="text-sm text-gray-500 mb-1">(Juni 2024 - Juli 2026)</p>
-              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                <li>Pemeliharaan lab komputer, instalasi HW/SW, dan perbaikan LAN/Wi-Fi.</li>
-                <li>Menyediakan tech support harian demi kelancaran KBM digital.</li>
-              </ul>
-            </div>
+<body class="bg-gray-100 p-4 sm:p-6">
 
-            <!-- SMP ANUGERAH -->
-            <div class="pt-3">
-              <p class="font-bold text-gray-800">✅ SMP ANUGERAH – Administrasi Umum</p>
-              <p class="text-sm text-gray-500 mb-1">(Juni 2022 - Juni 2024)</p>
-              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                <li>Menangani arsip data fisik/digital siswa serta korespondensi sekolah.</li>
-                <li>Menyusun laporan bulanan menggunakan fungsi Excel tingkat lanjut.</li>
-              </ul>
-            </div>
+  <!-- =========================================================
+       TOMBOL NAVIGASI
+       Tidak akan masuk ke PDF
+  ========================================================== -->
+  <div class="max-w-4xl mx-auto mb-4 no-print">
+    <div class="flex justify-between items-center gap-3">
 
-            <!-- ASISTEN BPD 2 GSJA -->
-            <div class="pt-3">
-              <p class="font-bold text-gray-800">✅ BPD 2 GSJA JAKARTA BARAT – Asisten Administrasi Wakil Ketua</p>
-              <p class="text-sm text-gray-500 mb-1">(Januari 2025 - Juli 2026)</p>
-              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                <li>Mengatur jadwal eksekutif dan draf surat resmi organisasi.</li>
-              </ul>
-            </div>
+      <!-- Back -->
+      <a
+        href="index.html"
+        class="font-bold py-2 px-4 rounded bg-white text-gray-700
+               hover:bg-blue-500 hover:text-white
+               border border-gray-300 transition duration-300"
+      >
+        &larr; Back
+      </a>
 
-            <!-- FREELANCE IT & LES -->
-            <div class="pt-3">
-              <p class="font-bold text-gray-800">✅ FREELANCE IT SUPPORT & INSTRUKTUR KOMPUTER</p>
-              <p class="text-sm text-gray-500 mb-1">(September 2025 - Juli 2026)</p>
-              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                <li>Instalasi infrastruktur jaringan lokal untuk proyek pembaruan sekolah.</li>
-                <li>Mengajar kelas privat komputer dan ekstrakurikuler coding SD/SMP.</li>
-              </ul>
-            </div>
+      <!-- Download -->
+      <button
+        onclick="downloadPDF()"
+        class="bg-red-500 text-white font-bold px-4 py-2 rounded
+               hover:bg-red-600 transition duration-300"
+      >
+        <i class="fas fa-download mr-1"></i>
+        Download CV
+      </button>
 
-          </div>
-        </div>
-
-        <!-- ==================== EDUCATION, CERTIFICATIONS & SKILLS (KANAN) ==================== -->
-        <div class="md:w-1/2 flex-1 mt-8 md:mt-0 space-y-6">
-          
-          <!-- PENDIDIKAN -->
-          <div>
-            <h3 class="text-2xl font-bold text-red-500 border-b-2 border-red-500 pb-1">EDUCATION</h3>
-            <div class="mt-2 space-y-2 text-sm text-gray-700">
-              <p>👨‍💻 <strong>SMK Kristen Blora</strong> – TKJ (Lulus: 2022)</p>
-              <p>👨‍💻 <strong>AMIK Mapan Tangerang</strong> – D3 Teknik Informatika (Lulus: 2025)</p>
-            </div>
-          </div>
-
-          <!-- SERTIFIKASI -->
-          <div>
-            <h3 class="text-2xl font-bold text-red-500 border-b-2 border-red-500 pb-1">CERTIFICATIONS & TRAINING</h3>
-            <div class="mt-2 space-y-2 text-sm">
-              <p>
-                🏫 <a href="Sertifikat/STTP NON PNS-8_sign_sign_sign_sign.pdf" target="_blank" class="text-blue-500 hover:underline font-semibold">Pelatihan Kompetensi Non-Teknis Pendidik – Kewirausahaan (Operator)</a>
-                <span class="text-gray-600">(Jakarta Barat, 2024)</span>
-              </p>
-              <p>
-                🎓 <a href="Sertifikat/STTP NON PNS-27_sign_sign_sign_sign.pdf" target="_blank" class="text-blue-500 hover:underline font-semibold">Pelatihan Kompetensi Non-Teknis Pendidik – Kewirausahaan (Tutor)</a>
-                <span class="text-gray-600">(Jakarta Barat, 2024)</span>
-              </p>
-              <p>
-                📸 <a href="Sertifikat/MARKUS JIMMY (3).pdf" target="_blank" class="text-blue-500 hover:underline font-semibold">Sertifikat Seminar Fotografi Seluler (2023)</a>
-              </p>
-            </div>
-          </div>
-
-          <!-- KEAHLIAN / SKILLS -->
-          <div>
-            <h3 class="text-2xl font-bold text-red-500 border-b-2 border-red-500 pb-1">SKILLS</h3>
-            <div class="mt-2 space-y-3 text-sm font-semibold text-gray-700">
-              
-              <div>
-                <p class="mb-1">Manajemen Sistem Dapodik & Administrasi</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-blue-500 h-2.5 rounded-full" style="width: 95%"></div>
-                </div>
-              </div>
-
-              <div>
-                <p class="mb-1">Microsoft Office (Advanced Excel)</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-red-500 h-2.5 rounded-full" style="width: 95%"></div>
-                </div>
-              </div>
-
-              <div>
-                <p class="mb-1">Setup & Troubleshooting Hardware/PC</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-orange-500 h-2.5 rounded-full" style="width: 95%"></div>
-                </div>
-              </div>
-
-              <div>
-                <p class="mb-1">Pemeliharaan Jaringan (LAN / Wi-Fi)</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-green-500 h-2.5 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-
-              <div>
-                <p class="mb-1">Kolaborasi dengan AI Tools</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-
-                  <p>Canva Design</p>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-pink-500 h-2.5 rounded-full" style="width: 75%"></div>
-              </div>
-            </div> -->
-          </div>
-        </div>
-      </div>
-
-      <!-- MOTIVATION -->
-      <div class="mt-8 text-left text-gray-500">
-        <h3 class="text-2xl font-bold text-red-500">WORDS OF MOTIVATION</h3>
-        <p class="mt-2">"Selagi masih ada waktu jangan takut mencoba."</p>
-        <p>"Berani mengambil risiko adalah langkah pertama menuju pencapaian besar. Jangan biarkan ketakutan menghalangimu."</p>
-      </div>
-
-      <!-- FOOTER -->
-      <div class="mt-8 border-t border-gray-300 pt-4 text-center text-gray-500">
-        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8">
-          <a href="mailto:markusjimmy882@gmail.com" class="text-sm sm:text-base md:text-xl lg:text-2xl text-red-500"> <i class="fas fa-envelope"></i> markusjimmy882@gmail.com </a>
-          <a href="https://instagram.com/jimbeliyau" class="text-sm sm:text-base md:text-xl lg:text-2xl text-green-500"> <i class="fab fa-instagram"></i> @jimbeliyau </a>
-          <a href="tel:085878003541" class="text-sm sm:text-base md:text-xl lg:text-2xl text-green-500"> <i class="fas fa-phone"></i> 085878003541 </a>
-        </div>
-      </div>
     </div>
-  </body>
+  </div>
+
+
+  <!-- =========================================================
+       ISI CV
+  ========================================================== -->
+  <div
+    id="cv-content"
+    class="max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-lg shadow-lg"
+  >
+
+    <!-- =======================================================
+         HEADER PROFIL
+    ======================================================== -->
+    <div class="flex flex-col md:flex-row items-center">
+
+      <!-- PROFIL TEKS -->
+      <div class="md:w-1/2">
+
+        <h1 class="text-4xl font-bold text-red-500">
+          HELLO!
+        </h1>
+
+        <h2 class="text-3xl font-bold text-red-500">
+          I'M
+        </h2>
+
+        <h2 class="text-3xl font-bold text-red-500">
+          Markus Jimmy
+        </h2>
+
+        <p class="mt-4 text-gray-700 text-justify leading-relaxed">
+          Lulusan D3 Teknik Informatika dengan pengalaman kerja di bidang
+          administrasi, pengelolaan data pendidikan, operasional sekolah,
+          serta dukungan teknologi informasi. Terbiasa menangani dokumen,
+          data, komunikasi administrasi, dan pekerjaan yang membutuhkan
+          ketelitian serta tanggung jawab. Memiliki kemampuan menggunakan
+          Microsoft Office, pengelolaan data, serta pemanfaatan teknologi
+          untuk mendukung pekerjaan administrasi agar lebih efektif dan
+          terorganisir.
+        </p>
+
+      </div>
+
+
+      <!-- FOTO -->
+      <div class="md:w-1/2 flex justify-center mt-6 md:mt-0">
+
+        <div
+          class="relative w-[150px] h-[150px] rounded-full overflow-hidden"
+        >
+
+          <div
+            class="absolute inset-0 rounded-full animate-glow"
+          ></div>
+
+          <img
+            src="img/IMG_0214__1_-png"
+            alt="Foto Markus Jimmy"
+            class="w-full h-full object-cover object-top shadow-lg"
+          />
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         ISI UTAMA
+    ======================================================== -->
+    <div class="mt-8 md:flex md:items-start md:space-x-8">
+
+
+      <!-- =====================================================
+           KOLOM KIRI
+      ====================================================== -->
+      <div class="md:w-1/2 flex-1 space-y-6">
+
+
+        <!-- ================= WORK EXPERIENCE ================= -->
+        <div class="avoid-break">
+
+          <h3
+            class="text-2xl font-bold text-red-500
+                   border-b-2 border-red-500 pb-1"
+          >
+            WORK EXPERIENCE
+          </h3>
+
+
+          <div class="space-y-4 divide-y divide-gray-200">
+
+
+            <!-- YAYASAN -->
+            <div class="pt-3 avoid-break">
+
+              <p class="font-bold text-gray-800">
+                ✅ YAYASAN KASIH ANUGERAH – Staf Administrasi
+              </p>
+
+              <p class="text-sm text-gray-500 mb-1">
+                (Juni 2022 - Sekarang)
+              </p>
+
+              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <li>
+                  Menangani pekerjaan administrasi dan pengelolaan dokumen.
+                </li>
+
+                <li>
+                  Membantu koordinasi surat-menyurat dan dokumen antar unit.
+                </li>
+              </ul>
+
+            </div>
+
+
+            <!-- PKBM -->
+            <div class="pt-3 avoid-break">
+
+              <p class="font-bold text-gray-800">
+                ✅ PKBM KASIH ANUGERAH – Administrasi & Operator
+              </p>
+
+              <p class="text-sm text-gray-500 mb-1">
+                (2024 - Sekarang)
+              </p>
+
+              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <li>
+                  Menangani administrasi dan pengelolaan data peserta didik.
+                </li>
+
+                <li>
+                  Membantu pengelolaan data pendidikan dan administrasi sekolah.
+                </li>
+              </ul>
+
+            </div>
+
+
+            <!-- SMP -->
+            <div class="pt-3 avoid-break">
+
+              <p class="font-bold text-gray-800">
+                ✅ SMP ANUGERAH – Administrasi Tata Usaha
+              </p>
+
+              <p class="text-sm text-gray-500 mb-1">
+                (Juni 2022 - Juni 2024)
+              </p>
+
+              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <li>
+                  Mengelola arsip dan dokumen administrasi sekolah.
+                </li>
+
+                <li>
+                  Membantu pengelolaan data dan kebutuhan administrasi peserta didik.
+                </li>
+              </ul>
+
+            </div>
+
+
+            <!-- SMK -->
+            <div class="pt-3 avoid-break">
+
+              <p class="font-bold text-gray-800">
+                ✅ SMK KASIH ANUGERAH – Teknisi
+              </p>
+
+              <p class="text-sm text-gray-500 mb-1">
+                (Juni 2024 - Sekarang)
+              </p>
+
+              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <li>
+                  Membantu pemeliharaan komputer dan perangkat pendukung.
+                </li>
+
+                <li>
+                  Membantu menangani kebutuhan teknis jaringan dan perangkat sekolah.
+                </li>
+              </ul>
+
+            </div>
+
+
+            <!-- BPD GSJA -->
+            <div class="pt-3 avoid-break">
+
+              <p class="font-bold text-gray-800">
+                ✅ ASISTEN ADMINISTRASI WAKIL BPD 2 GSJA DKI JAKARTA BARAT
+              </p>
+
+              <p class="text-sm text-gray-500 mb-1">
+                (Januari 2025 - Sekarang)
+              </p>
+
+              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <li>
+                  Membantu administrasi dan pengelolaan dokumen organisasi.
+                </li>
+
+                <li>
+                  Membantu penyusunan dan koordinasi kebutuhan administrasi.
+                </li>
+              </ul>
+
+            </div>
+
+
+            <!-- LES KOMPUTER -->
+            <div class="pt-3 avoid-break">
+
+              <p class="font-bold text-gray-800">
+                ✅ MENGAJAR LES PRIVAT KOMPUTER
+              </p>
+
+              <p class="text-sm text-gray-500 mb-1">
+                (September 2025 - Sekarang)
+              </p>
+
+              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <li>
+                  Mengajarkan dasar komputer kepada peserta didik tingkat SMP dan SMA.
+                </li>
+              </ul>
+
+            </div>
+
+
+            <!-- CODING -->
+            <div class="pt-3 avoid-break">
+
+              <p class="font-bold text-gray-800">
+                ✅ MENGAJAR EKSTRAKURIKULER CODING SD & SMP
+              </p>
+
+              <p class="text-sm text-gray-500 mb-1">
+                (Oktober 2025 - Sekarang)
+              </p>
+
+              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <li>
+                  Mengajarkan dasar pemrograman dan penggunaan teknologi kepada siswa.
+                </li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- =====================================================
+           KOLOM KANAN
+      ====================================================== -->
+      <div class="md:w-1/2 flex-1 mt-8 md:mt-0 space-y-6">
+
+
+        <!-- ================= EDUCATION ================= -->
+        <div class="avoid-break">
+
+          <h3
+            class="text-2xl font-bold text-red-500
+                   border-b-2 border-red-500 pb-1"
+          >
+            EDUCATION
+          </h3>
+
+          <div class="mt-2 space-y-2 text-sm text-gray-700">
+
+            <p>
+              👨‍💻
+              <strong>SMK Kristen Blora</strong>
+              – TKJ (Lulus: 2022)
+            </p>
+
+            <p>
+              👨‍💻
+              <strong>AMIK Mapan Tangerang</strong>
+              – D3 Teknik Informatika (Lulus: 2025)
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================= CERTIFICATIONS ================= -->
+        <div class="avoid-break">
+
+          <h3
+            class="text-2xl font-bold text-red-500
+                   border-b-2 border-red-500 pb-1"
+          >
+            CERTIFICATIONS & TRAINING
+          </h3>
+
+          <div class="mt-2 space-y-3 text-sm">
+
+            <p>
+              🏫
+              <a
+                href="Sertifikat/STTP NON PNS-8_sign_sign_sign_sign.pdf"
+                target="_blank"
+                class="text-blue-500 hover:underline font-semibold"
+              >
+                Pelatihan Kompetensi Non-Teknis Pendidik –
+                Kewirausahaan (Operator)
+              </a>
+
+              <span class="text-gray-600">
+                (Jakarta Barat, 2024)
+              </span>
+            </p>
+
+
+            <p>
+              🎓
+              <a
+                href="Sertifikat/STTP NON PNS-27_sign_sign_sign_sign.pdf"
+                target="_blank"
+                class="text-blue-500 hover:underline font-semibold"
+              >
+                Pelatihan Kompetensi Non-Teknis Pendidik –
+                Kewirausahaan (Tutor)
+              </a>
+
+              <span class="text-gray-600">
+                (Jakarta Barat, 2024)
+              </span>
+            </p>
+
+
+            <p>
+              📸
+              <a
+                href="Sertifikat/MARKUS JIMMY (3).pdf"
+                target="_blank"
+                class="text-blue-500 hover:underline font-semibold"
+              >
+                Sertifikat Seminar Fotografi Seluler (2023)
+              </a>
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================= SKILLS ================= -->
+        <div>
+
+          <h3
+            class="text-2xl font-bold text-red-500
+                   border-b-2 border-red-500 pb-1"
+          >
+            SKILLS
+          </h3>
+
+
+          <div class="mt-3 space-y-4 text-sm font-semibold text-gray-700">
+
+
+            <!-- ADMINISTRASI -->
+            <div>
+
+              <p class="mb-1">
+                Administrasi & Pengelolaan Data
+              </p>
+
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+
+                <div
+                  class="bg-blue-500 h-2.5 rounded-full"
+                  style="width: 85%"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+            <!-- MICROSOFT OFFICE -->
+            <div>
+
+              <p class="mb-1">
+                Microsoft Office
+              </p>
+
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+
+                <div
+                  class="bg-red-500 h-2.5 rounded-full"
+                  style="width: 80%"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+            <!-- DAPODIK -->
+            <div>
+
+              <p class="mb-1">
+                Pengelolaan Data Pendidikan / Dapodik
+              </p>
+
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+
+                <div
+                  class="bg-indigo-500 h-2.5 rounded-full"
+                  style="width: 85%"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+            <!-- HARDWARE -->
+            <div>
+
+              <p class="mb-1">
+                Setup & Troubleshooting Hardware/PC
+              </p>
+
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+
+                <div
+                  class="bg-orange-500 h-2.5 rounded-full"
+                  style="width: 80%"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+            <!-- JARINGAN -->
+            <div>
+
+              <p class="mb-1">
+                Pemeliharaan Jaringan LAN / Wi-Fi
+              </p>
+
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+
+                <div
+                  class="bg-green-500 h-2.5 rounded-full"
+                  style="width: 75%"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+            <!-- HTML -->
+            <div>
+
+              <p class="mb-1">
+                HTML
+              </p>
+
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+
+                <div
+                  class="bg-purple-500 h-2.5 rounded-full"
+                  style="width: 70%"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+            <!-- CANVA -->
+            <div>
+
+              <p class="mb-1">
+                Canva Design
+              </p>
+
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+
+                <div
+                  class="bg-pink-500 h-2.5 rounded-full"
+                  style="width: 75%"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+            <!-- KOMUNIKASI -->
+            <div>
+
+              <p class="mb-1">
+                Komunikasi
+              </p>
+
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+
+                <div
+                  class="bg-yellow-500 h-2.5 rounded-full"
+                  style="width: 85%"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+            <!-- BAHASA INDONESIA -->
+            <div>
+
+              <p class="mb-1">
+                Bahasa Indonesia
+              </p>
+
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+
+                <div
+                  class="bg-red-500 h-2.5 rounded-full"
+                  style="width: 95%"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         WORDS OF MOTIVATION
+    ======================================================== -->
+    <div class="mt-8 text-left text-gray-500 avoid-break">
+
+      <h3
+        class="text-2xl font-bold text-red-500
+               border-b-2 border-red-500 pb-1"
+      >
+        WORDS OF MOTIVATION
+      </h3>
+
+      <p class="mt-3">
+        "Selagi masih ada waktu jangan takut mencoba."
+      </p>
+
+      <p class="mt-1">
+        "Berani mengambil risiko adalah langkah pertama menuju pencapaian besar.
+        Jangan biarkan ketakutan menghalangimu."
+      </p>
+
+    </div>
+
+
+    <!-- =======================================================
+         FOOTER / CONTACT
+    ======================================================== -->
+    <div
+      class="mt-8 border-t border-gray-300 pt-5 text-center text-gray-500"
+    >
+
+      <div
+        class="flex flex-col md:flex-row
+               justify-center items-center
+               gap-4 md:gap-8"
+      >
+
+        <!-- EMAIL -->
+        <a
+          href="mailto:markusjimmy882@gmail.com"
+          class="text-sm sm:text-base text-red-500
+                 hover:text-red-700 transition"
+        >
+          <i class="fas fa-envelope mr-1"></i>
+          markusjimmy882@gmail.com
+        </a>
+
+
+        <!-- INSTAGRAM -->
+        <a
+          href="https://instagram.com/jimbeliyau"
+          target="_blank"
+          class="text-sm sm:text-base text-green-500
+                 hover:text-green-700 transition"
+        >
+          <i class="fab fa-instagram mr-1"></i>
+          @jimbeliyau
+        </a>
+
+
+        <!-- PHONE -->
+        <a
+          href="tel:085878003541"
+          class="text-sm sm:text-base text-green-500
+                 hover:text-green-700 transition"
+        >
+          <i class="fas fa-phone mr-1"></i>
+          085878003541
+        </a>
+
+
+        <!-- PORTFOLIO -->
+        <a
+          href="https://markusjimmy.github.io/Jimmy/"
+          target="_blank"
+          class="text-sm sm:text-base text-blue-500
+                 hover:text-blue-700 transition"
+        >
+          <i class="fas fa-globe mr-1"></i>
+          Portfolio
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT DOWNLOAD PDF
+  ========================================================== -->
+  <script>
+    function downloadPDF() {
+
+      const element = document.getElementById("cv-content");
+
+      const options = {
+        margin: 5,
+
+        filename: "CV-Markus-Jimmy.pdf",
+
+        image: {
+          type: "jpeg",
+          quality: 0.98
+        },
+
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          scrollY: 0
+        },
+
+        jsPDF: {
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait"
+        },
+
+        pagebreak: {
+          mode: ["css", "legacy"]
+        }
+      };
+
+
+      html2pdf()
+        .set(options)
+        .from(element)
+        .save();
+
+    }
+  </script>
+
+</body>
 </html>
